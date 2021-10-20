@@ -10,18 +10,16 @@ import { BalancePipe } from '../balance.pipe';
 @Component({
   selector: 'mfw-tokens-list',
   template: `
- 
-   <div>
-     <label> Account Address:</label>
-     <input type="text" [formControl]="account" [placeholder]="placeholder">
-   </div>
-   <div *ngIf="errorMessage; else elseBlock"> 
-      <p> {{ errorMessage }}</p>
-   </div>
+  <div>
+    <input class="form-control" type="text" [formControl]="account" [placeholder]="placeholder">
+  </div>
+  <div style="color: red" *ngIf="errorMessage; else elseBlock"> 
+     <p> {{ errorMessage }}</p>
+  </div>
   <ng-template #elseBlock>
       <ng-container  *ngFor="let token of tokens"> 
-        <a (click)="onGetToken(token)">
-          <div class="row">
+         <div class="card my-1 px-3" style="cursor: pointer" (click)="onGetToken(token)">
+          <div class="d-flex justify-content-between">
               <div>
                   <p>{{ token.name }}</p>
                   <span>{{ token.type }} - {{ token.contractAddress }}</span>
@@ -30,11 +28,10 @@ import { BalancePipe } from '../balance.pipe';
                 <p>{{ token.balance | balance:token.decimals }} {{ token.symbol }}</p>
               </div>
             </div>
-          </a>
+         </div>
        </ng-container>
   </ng-template>
   `,
-  styleUrls: ['./tokens-list.component.scss'],
   providers: [BalancePipe]
 })
 export class TokensListComponent implements OnInit {
@@ -42,7 +39,7 @@ export class TokensListComponent implements OnInit {
   account = new FormControl('');
   tokens: any
   errorMessage = ''
-  placeholder = 'type here...'
+  placeholder = 'type account id here...'
 
   constructor(
     private appService: AppService,
@@ -51,7 +48,6 @@ export class TokensListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
     // click event will be instead of change input event  
     this.account.valueChanges.
       pipe(

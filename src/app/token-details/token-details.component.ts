@@ -5,7 +5,7 @@ import { AppService } from '../app.service';
   selector: 'mfw-token-details',
   template: `
   
-   <div class="detail-container" *ngIf="token.value as token">
+   <div class="card p-2" *ngIf="token.value as token">
      <div>
         Contract Address: {{ token.contractAddress  }}
      </div>
@@ -22,8 +22,7 @@ import { AppService } from '../app.service';
         User Hold Percentage: {{ percentageHold }}
      </div>
   </div>
-  `,
-  styleUrls: ['./token-details.component.scss']
+  `
 })
 export class TokenDetailsComponent implements OnInit {
 

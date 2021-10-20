@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     TokensListComponent,
     BalancePipe,
-    TokenDetailsComponent
+    TokenDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -34,4 +34,11 @@ export class AppService {
         })
       )
   }
+
+  getAccounts() {
+    return this.http.get(`${apiUrl}?module=account&action=listaccounts`)
+      .pipe(
+        map(({ result }: any) => result)
+      )
+  }
 }

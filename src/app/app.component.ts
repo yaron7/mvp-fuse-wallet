@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'mfw-root',
   template: `
-    <router-outlet></router-outlet>
+   <main class="container">
+     <router-outlet></router-outlet>
+   </main>
   `,
   styles: []
 })
