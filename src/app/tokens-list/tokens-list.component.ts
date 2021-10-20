@@ -25,7 +25,7 @@ import { BalancePipe } from '../balance.pipe';
                   <span>{{ token.type }} - {{ token.contractAddress }}</span>
               </div>
               <div>
-                <p>{{ token.balance | balance:token.decimals }} {{ token.symbol }}</p>
+                <p>{{ token.balance | balance:token.decimals | number:'1.0-6' }} {{ token.symbol }}</p>
               </div>
             </div>
          </div>

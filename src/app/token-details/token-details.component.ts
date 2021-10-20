@@ -13,7 +13,7 @@ import { AppService } from '../app.service';
         Token Name: {{ token.name  }}
      </div>
      <div>
-        Total Supply: {{ token.totalSupply  }}
+        Total Supply: {{ token.totalSupply | balance:token.decimals | number:'1.0-6' }}
      </div>
      <div>
         Type: {{ token.type  }}

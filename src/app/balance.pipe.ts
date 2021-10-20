@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BalancePipe implements PipeTransform {
 
-  transform(value: string, decimal: string): unknown {
+  transform(value: string, decimal: string): number {
 
     const power = parseFloat(decimal)
     const balance = parseFloat(value)
